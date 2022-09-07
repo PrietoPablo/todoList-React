@@ -7,6 +7,26 @@ import './App.scss';
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  const toggleTaskDone = (taskId) => {
+    axios.put(`http://localhost:3000/tasks/${taskId}`)
+      .then(() => {
+        const updateTasks = tasks.map((task) => {
+          if (task.id === taskId) {
+            return {
+              ...task,
+              done: !task.done,
+            };
+          }
+          return task;
+        });
+
+        setTasks(updateTasks);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   useEffect(() => {
     axios
       .get('http://localhost:3000/tasks')
@@ -21,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <h1>Liste des tâches</h1>
-      <TodoList tasks={tasks} />
+      <TodoList tasks={tasks} toggleTaskDone={toggleTaskDone} />
     </div>
   );
 }

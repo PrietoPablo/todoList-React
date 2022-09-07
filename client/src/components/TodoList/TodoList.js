@@ -3,7 +3,7 @@ import './TodoList.scss';
 
 import Task from './Task/Task';
 
-function TodoList({ tasks }) {
+function TodoList({ tasks, toggleTaskDone }) {
   return (
     <ul>
       {tasks.map((task) => (
@@ -12,6 +12,7 @@ function TodoList({ tasks }) {
           id={task.id}
           label={task.label}
           done={task.done}
+          toggleTaskDone={toggleTaskDone}
         />
       ))}
     </ul>
@@ -26,6 +27,7 @@ TodoList.propTypes = {
       done: PropTypes.bool.isRequired,
     }).isRequired,
   ).isRequired,
+  toggleTaskDone: PropTypes.func.isRequired,
 };
 
 export default TodoList;
