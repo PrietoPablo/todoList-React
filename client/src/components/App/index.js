@@ -1,7 +1,13 @@
+import TodoList from '../TodoList/TodoList';
+
+import './App.scss';
+
 // == Composant
 function App() {
   return (
-    <div className="app">
+    <div className="App">
+      <h1>Liste des tâches</h1>
+      <TodoList />
     </div>
   );
 }

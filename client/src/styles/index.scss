@@ -2,7 +2,11 @@
 @use 'vars';
 
 body {
-  font-family: sans-serif;
+  max-width: 650px;
+  margin: 0 auto;
+  font-family: system-ui, sans-serif;
+  background: #eee;
+
 }
 
 /* 
