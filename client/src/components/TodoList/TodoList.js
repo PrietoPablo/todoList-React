@@ -1,24 +1,31 @@
+import PropTypes from 'prop-types';
 import './TodoList.scss';
 
-function TodoList() {
+import Task from './Task/Task';
+
+function TodoList({ tasks }) {
   return (
     <ul>
-      <li className="Task">
-        <span>
-          <input type="checkbox" />
-          1st task
-        </span>
-        <button type="button">Delete</button>
-      </li>
-      <li className="Task">
-        <span>
-          <input type="checkbox" />
-          2nd task
-        </span>
-        <button type="button">Delete</button>
-      </li>
+      {tasks.map((task) => (
+        <Task
+          key={task.id}
+          id={task.id}
+          label={task.label}
+          done={task.done}
+        />
+      ))}
     </ul>
   );
 }
+
+TodoList.propTypes = {
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      label: PropTypes.string.isRequired,
+      done: PropTypes.bool.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default TodoList;
