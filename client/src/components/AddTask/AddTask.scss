@@ -1,0 +1,26 @@
+.AddTask {
+  a {
+    color: rgb(65, 65, 197);
+    text-decoration: underline;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius:8px;
+  }
+
+  input {
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  
+  button {
+    height: 30px;
+  }
+}

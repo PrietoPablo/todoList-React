@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 function Task({
-  id, label, done, toggleTaskDone
+  id, label, done, toggleTaskDone, deleteTask
 }) {
   return (
     <li className="Task">
@@ -14,7 +14,7 @@ function Task({
         />
         {label}
       </span>
-      <button type="button">Delete</button>
+      <button type="button" onClick={() => deleteTask(id)}>Delete</button>
     </li>
   );
 }
@@ -24,6 +24,7 @@ Task.propTypes = {
   label: PropTypes.string.isRequired,
   done: PropTypes.bool.isRequired,
   toggleTaskDone: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
 export default Task;
